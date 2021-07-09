@@ -3,7 +3,6 @@ import localVersion from '../../stores/localVersion'
 import message from "../../stores/message"
 import remoteVersionFilename from '../../../main.version?url'
 
-
 async function initWebApp():Promise<void>{
     let $localVersion:string
     localVersion.subscribe($=>$localVersion=$)()
@@ -24,7 +23,7 @@ async function initWebApp():Promise<void>{
                 timeout: 1000*60*30, //30 minutes
                 buttons:[
                     {
-                        text:'Aggiorna',
+                        text:'Update',
                         action:()=>{
                             message.set(null)
                             localStorage.clear()
@@ -47,7 +46,7 @@ async function initWebApp():Promise<void>{
                         }
                     },
                     {
-                        text:'Chiudi',
+                        text:'Close',
                         action:()=>message.set(null),
                     }
                 ]

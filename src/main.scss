@@ -4,100 +4,13 @@
 @import './lib/style/margin.scss';
 @import './lib/style/padding.scss';
 @import './lib/style/variables.scss';
+@import './lib/style/dimensions.scss';
 @import './lib/style/pallete/generic/colors.scss';
 @import './lib/style/framework7-icons.scss';
+@import './lib/style/overwrite-platform-defaults.scss';
 
-html{
-    overscroll-behavior: none;
-}
-
-.swiper-button-disabled{
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-.simple-list li:after, .links-list a:after, .list .item-inner:after{
-    display: none;
-}
-
-.popover.calendar-popover.modal-in.popover-on-bottom.popover-on-right{
-    background: #fff;
-}
-
-* {
-    -webkit-touch-callout: none; /* iOS Safari */
-      -webkit-user-select: none; /* Safari */
-       -khtml-user-select: none; /* Konqueror HTML */
-         -moz-user-select: none; /* Old versions of Firefox */
-          -ms-user-select: none; /* Internet Explorer/Edge */
-              user-select: none; /* Non-prefixed version, currently
-                                    supported by Chrome, Edge, Opera and Firefox */
-}
-.selection{
-    -webkit-touch-callout: text; /* iOS Safari */
-      -webkit-user-select: text; /* Safari */
-       -khtml-user-select: text; /* Konqueror HTML */
-         -moz-user-select: text; /* Old versions of Firefox */
-          -ms-user-select: text; /* Internet Explorer/Edge */
-              user-select: text; /* Non-prefixed version, currently
-                                    supported by Chrome, Edge, Opera and Firefox */
-}
-
-*:focus {
-    outline: none;
-}
-
-.md .toggle-icon:after{
-    margin-top: -1px;
-}
-.md .toggle-icon{
-    border: 1px solid rgba(0,0,0,0.1);
-}
-
-/* Change the white to any color ;) */
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  {
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
-}
-
-/*Change text in autofill textbox*/
-input:-webkit-autofill {
-    -webkit-text-fill-color: var(--text-color) !important;
-}
-
-
-.tab-link-active{
-    color: #000;
-}
-
-.full-width{
-    width: 100%;
-}
-.full-height{
-    height: 100%;
-}
-.border-radius-0{
-    border-radius: 0;
-}
-.float-left{
-    float: left;
-}
-.float-right{
-    float: right;
-}
-
-
-html, body {
-    height: 100%;
-}
 
 body {
     font-family: 'Roboto';
     margin: 0;
-    padding-top: 0.1px; // Prevent header h1 margin from pushing body down
-}
-
-html{
-    overscroll-behavior: none;
 }

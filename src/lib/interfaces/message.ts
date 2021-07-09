@@ -4,7 +4,7 @@ interface RichMessageButton{
 }
 
 interface RichMessage{
-    text:string
+    text:string|Array<string>
     timeout?:number
     onExpire?:Function
     buttons?:Array<RichMessageButton>

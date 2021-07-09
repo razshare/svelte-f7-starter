@@ -5,10 +5,7 @@ import { initWebApp } from "./lib/scripts/app/app";
 import Routes from "./lib/components/Routes.svelte";
 import Snackbar from "./lib/components/Snackbar.svelte";
 import message from "./lib/stores/message";
-onMount(async ()=>{
-    await initWebApp()
-})
-
+onMount(initWebApp)
 </script>
 
 <App

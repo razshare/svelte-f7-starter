@@ -1,7 +1,13 @@
 <div class="snack-bar" transition:fly={{y:100,duration:300}}>
     <div class="grid">
         <div class="left">
-            {message.text}
+            {#if Array.isArray(message.text)}
+                {#each message.text as line}
+                    {line}<br />
+                {/each}
+            {:else}
+                {message.text}
+            {/if}
         </div>
         <div class="right grid grid-cols-10-auto">
             {#if message.buttons}

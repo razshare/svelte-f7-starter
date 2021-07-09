@@ -4,24 +4,22 @@ import {
 	Button,
 	Icon
 } from 'framework7-svelte'
-import install from '../scripts/install'
-import isInstalled from '../stores/isInstalled'
+import {install, isInstallable} from '../scripts/install'
 
 async function onClick(e){
 	if(await install()){
-		$isInstalled = true
+		$isInstallable = false
 	}
 }
 </script>
 
-{#if !$isInstalled}
-<div class="install-button">
-	<Button {onClick} class="p-1 pb-2 pt-2">
-		<Icon style="top: -2px" material="add_circle_outline" />&nbsp;
-		{text}
-	</Button>
-</div>
-{/if}
+	<div class="install-button">
+		<Button {onClick} class="p-1 pb-2 pt-2">
+			<Icon style="top: -2px" material="add_circle_outline" />&nbsp;
+			{text}
+		</Button>
+	</div>
+
 
 <style>
 	.install-button{
