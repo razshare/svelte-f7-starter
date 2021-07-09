@@ -16,7 +16,6 @@ window.addEventListener('beforeinstallprompt', (r:any) => {
 
 
 async function install():Promise<boolean>{
-	debugger
 	if(!request){
 		let $isInstallable;
 		isInstallable.subscribe(x=>$isInstallable=x)()
