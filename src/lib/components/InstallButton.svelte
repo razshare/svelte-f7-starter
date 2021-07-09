@@ -4,7 +4,7 @@ import {
 	Button,
 	Icon
 } from 'framework7-svelte'
-import { install } from '../scripts/install'
+import install from '../scripts/install'
 import isInstalled from '../stores/isInstalled'
 
 async function onClick(e){
