@@ -10,6 +10,12 @@
                         {button.text}
                     </Button>
                 {/each}
+            {:else}
+                <Button style="color:var(----snack-bar-color)" onClick={()=>{
+                    messageMaster.set(null)
+                }}>
+                    OK
+                </Button>
             {/if}
         </div>
     </div>
@@ -58,6 +64,7 @@ import { Button } from "framework7-svelte";
 import { onDestroy,onMount } from "svelte";
 import { fly } from "svelte/transition";
 import uuid from "../scripts/uuid";
+import messageMaster from "../stores/message";
 import type { RichMessage } from "../interfaces/message";
 
 export let message:RichMessage|null
