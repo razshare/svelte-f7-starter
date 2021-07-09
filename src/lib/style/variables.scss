@@ -1,0 +1,34 @@
+:root{
+    --text-color: #000;
+    --f7-theme-color: #FECA16;
+    --f7-theme-color-shade: #FECA16;
+    --f7-theme-color-tint: #FECA16;
+    --component-bg-color: #fff;
+    
+    --swiper-navigation-color: var(--text-color);
+    --f7-navbar-bg-color: var(--f7-theme-color);
+    --f7-toggle-active-color: var(--f7-theme-color);
+    --f7-list-bg-color: var(--component-bg-color);
+    --f7-popover-bg-color: var(--component-bg-color);
+    --f7-calendar-sheet-bg-color: var(--component-bg-color);
+
+    --f7-button-pressed-bg-color: rgba(0,0,0,0.1);
+    --f7-toolbar-bg-color: var(--f7-theme-color);
+    --f7-toolbar-link-color: var(--text-color);
+    --f7-navbar-link-color: var(--text-color);
+    --f7-checkbox-inactive-color: rgba(0,0,0,0.3);
+    --f7-checkbox-icon-color: var(--text-color);
+    --f7-button-text-color: var(--text-color);
+    --f7-link-touch-ripple-color: rgba(0,0,0,0.3);
+    --f7-tabbar-link-active-border-color: var(--text-color);
+    --f7-tabbar-link-active-color: var(--text-color);
+    --custom-button-text-success-color: #79AF3B;
+    --f7-button-fill-text-color: var(--text-color);
+
+    --f7-input-outline-border-color: rgba(0,0,0,0.7);
+    --f7-list-item-border-color: rgba(0,0,0,0.7);
+
+    /*search bar*/
+    --f7-searchbar-border-color: rgba(0,0,0,0.1);
+    --f7-generic-border-color: rgba(0,0,0,0.1);
+}
