@@ -1,6 +1,4 @@
 import worker from "../../stores/worker";
-import Permission from "../Permission";
-
 
 async function findServiceWorker(registrations){
 	if(registrations.length > 0){

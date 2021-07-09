@@ -1,5 +1,4 @@
 import worker from '../stores/worker';
-import Permission from './Permission';
 import message from '../stores/message';
 
 async function requestNotificationPermission():Promise<boolean>{
