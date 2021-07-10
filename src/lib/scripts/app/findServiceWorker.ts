@@ -6,7 +6,6 @@ async function findServiceWorker(registrations){
 	if(registrations.length > 0){
 		let reg = null;
 		for(let i = 0; i < registrations.length; i++){
-			//if(registrations[i].active && window.location.origin+"/worker.js" === registrations[i].active.scriptURL){
 			if(registrations[i].active && window.location.origin+FILE_NAME === registrations[i].active.scriptURL){
 				reg = registrations[i];
 				break;
