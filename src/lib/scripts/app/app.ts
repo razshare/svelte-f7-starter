@@ -19,7 +19,7 @@ async function initWebApp():Promise<void>{
         if($localVersion !== remoteVersion){
             //location.reload(true);
             message.set({
-                text: `Nuova versione disponibile ${remoteVersion}`,
+                text: `New version available ${remoteVersion}`,
                 timeout: 1000*60*30, //30 minutes
                 buttons:[
                     {
