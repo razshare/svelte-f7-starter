@@ -45,7 +45,7 @@ async function initWebApp():Promise<void>{
                     {
                         text:'Update',
                         action:()=>{
-                            message.set(null)
+                            message.set(null)   //this will close the snackbar
                             localStorage.clear()
                             console.log(`Updating from version ${$localVersion} to version ${remoteVersion}`)
                             if(window.caches)
