@@ -12,14 +12,6 @@ registerRoute(
   new CacheFirst()
 );
 
-let notificationPermission = false
-
-async function requestNotificationPermission(){
-	let granted = (await Notification.requestPermission()) === 'granted'
-	return granted
-}
-
-
 async function notify(title,body,vibrate=[200, 100, 200],icon='',tag=''){
   this.registration.showNotification(title, {
       body: body,
@@ -29,9 +21,7 @@ async function notify(title,body,vibrate=[200, 100, 200],icon='',tag=''){
   })
 }
 
-let vars = {
-  notificationPermission:false
-};
+let vars = {};
 
 self.addEventListener('message', async function(event){
   let data = JSON.parse(event.data);
@@ -58,19 +48,3 @@ self.addEventListener('message', async function(event){
 self.addEventListener('install', function (e) {
   console.log("Website saved locally.");
 });
-
-(async function poll(){
-  if(vars.notificationPermission)
-    try{
-      console.log("updating notifications...");
-      let response = await fetch("http://127.0.0.1/get-notifications.php");
-      let notifications = await response.json();
-      notifications.forEach((notification)=>{
-        notify(notification.titolo,notification.testo);
-      })
-    }catch(e){
-      console.warn(e);
-    }
-
-  setTimeout(poll,10000)
-})();
