@@ -9,6 +9,7 @@ import {install, isInstallable} from '../scripts/install'
 async function onClick(e){
 	if(await install()){
 		$isInstallable = false
+		location.reload() //makes sure all assets are cached in
 	}
 }
 </script>
