@@ -1,4 +1,4 @@
-import worker from "../../stores/serviceWorkerRegistration"
+import swr from "../../stores/serviceWorkerRegistration"
 
 const FILE_NAME = '/service-worker.js'
 
@@ -15,14 +15,14 @@ async function findServiceWorker(registrations){
 			console.info(`Service worker '${FILE_NAME}' not found!`);
 		else{
 			console.info(`Service worker '${FILE_NAME}' found!`);
-			worker.set(reg);
+			swr.set(reg);
 		}
 	}else{
 		console.info("No service worker registered on this website.");
 		console.log(`New worker registration request created for '${FILE_NAME}'.`);
 		await navigator.serviceWorker.register(FILE_NAME);
 		let wk:ServiceWorkerRegistration = await navigator.serviceWorker.ready;
-		worker.set(wk);
+		swr.set(wk);
 	}
 }
 
