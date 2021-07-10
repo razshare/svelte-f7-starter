@@ -13,9 +13,19 @@ async function initWebApp():Promise<void>{
         remoteVersion = await fetch(remoteVersionFilename)
         remoteVersion = await remoteVersion.text()
     }catch(e){
-        //This is very important.
-        //When the abvove fetch request fails, your client may be offline or the version file is mssing.
-        //In that case the application should continue working as usual.
+        /**
+         * This is very important.
+         * 
+         * The above fetch request is the only request in the whole
+         * application (besides API requests perhaps) that does not 
+         * hit the local cache storage at all, it will go straight to the server.
+         * 
+         * This means the above request will always fail when your user is offline.
+         * 
+         * In that case the application should keep working as usual, thus the 
+         * remote version should be set the same as the local version.
+         */
+        
         remoteVersion = $localVersion
     }
 
