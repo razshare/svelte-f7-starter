@@ -7,13 +7,18 @@ async function initWebApp():Promise<void>{
     let $localVersion:string
     localVersion.subscribe($=>$localVersion=$)()
     let remoteVersion:any
+
     try{
         console.log({remoteVersionFilename})
         remoteVersion = await fetch(remoteVersionFilename)
         remoteVersion = await remoteVersion.text()
     }catch(e){
+        //This is very important.
+        //When the abvove fetch request fails, your client may be offline or the version file is mssing.
+        //In that case the application should continue working as usual.
         remoteVersion = $localVersion
     }
+
 
     try{
         console.log("versions:",{
