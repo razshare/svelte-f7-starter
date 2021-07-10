@@ -3,6 +3,7 @@ import { Block, Button, Page } from "framework7-svelte";
 import InstallButton from "../components/InstallButton.svelte"
 import SveltePNG from '../../assets/svelte.png?url'
 import notify from "../scripts/notify";
+import { isInstallable } from "../scripts/install";
 </script>
 <style lang="scss">
     .wrapper{
@@ -22,6 +23,8 @@ import notify from "../scripts/notify";
             Test notifications
         </Button>
     </Block>
-
-    <InstallButton text='Install'/>
+    
+    {#if $isInstallable}
+        <InstallButton text='Install'/>
+    {/if}
 </Page>
