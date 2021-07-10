@@ -41,8 +41,7 @@ function sync($localVersion:string, remoteVersion:string):void{
                     text:'Update',
                     action:()=>{
                         message.set(null)   //this will close the snackbar menu
-                        localStorage.clear()
-                        console.log(`Updating from version ${$localVersion} to version ${$remoteVersion}`)
+                        console.log(`Updating from version ${$localVersion} to version ${remoteVersion}`)
                         if(window.caches)
                             caches.keys().then((keyList) => {
                                 console.log({keyList});
