@@ -6,11 +6,16 @@ import remoteVersionFilename from '../../../main.version?url'
 async function initWebApp():Promise<void>{
     let $localVersion:string
     localVersion.subscribe($=>$localVersion=$)()
+    let remoteVersion:any
     try{
         console.log({remoteVersionFilename})
-        let remoteVersion:any = await fetch(remoteVersionFilename)
+        remoteVersion = await fetch(remoteVersionFilename)
         remoteVersion = await remoteVersion.text()
-        
+    }catch(e){
+        remoteVersion = $localVersion
+    }
+
+    try{
         console.log("versions:",{
             "local":$localVersion,
             "remote":remoteVersion
