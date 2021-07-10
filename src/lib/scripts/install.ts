@@ -1,5 +1,4 @@
 import message from '../stores/message';
-import worker from '../stores/worker';
 import {Writable, writable} from 'svelte/store';
 const isInstallable:Writable<any> = writable(false);
 
@@ -11,8 +10,6 @@ window.addEventListener('beforeinstallprompt', (r:any) => {
 	request = r
 	isInstallable.set(true)
 });
-
-
 
 
 async function install():Promise<boolean>{
