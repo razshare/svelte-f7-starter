@@ -8,9 +8,7 @@ async function initWebApp():Promise<void>{
     localVersion.subscribe($=>$localVersion=$)()
     
     try{
-        let remoteVersionFilename = (await import('../../../main.version?url')).default
-        console.log({remoteVersionFilename})
-        let response = await fetch(remoteVersionFilename)
+        let response = await fetch('/main.version')
         let remoteVersion = await response.text()
         setup($localVersion,remoteVersion);
     }catch(e){

@@ -21,7 +21,8 @@ import { isInstallable } from "../scripts/install";
             notify("title","body")
         }}>
             Test notifications
-        </Button>
+        </Button><br />
+        This is an update!
     </Block>
     
     {#if $isInstallable}
