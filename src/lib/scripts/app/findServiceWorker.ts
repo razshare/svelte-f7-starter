@@ -1,4 +1,4 @@
-import worker from "../../stores/worker"
+import worker from "../../stores/serviceWorkerRegistration"
 
 const FILE_NAME = '/service-worker.js'
 

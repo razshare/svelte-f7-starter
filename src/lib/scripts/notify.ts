@@ -1,4 +1,4 @@
-import worker from '../stores/worker';
+import swr from '../stores/serviceWorkerRegistration';
 import message from '../stores/message';
 
 async function requestNotificationPermission():Promise<boolean>{
@@ -20,13 +20,13 @@ export default async function notify(
 		return;
 	}
 	
-	(worker.subscribe($worker=>{
-		if($worker === null){
+	(swr.subscribe($swr=>{
+		if($swr === null){
 			console.warn("You need to install the main worker before sending a notification.");
 			message.set({text:"The local notifications system is unavailable for this application."})
 			return;
 		}
-		$worker.active.postMessage(JSON.stringify({
+		$swr.active.postMessage(JSON.stringify({
 			action: "send-notification",
 			body: {
 				title,
