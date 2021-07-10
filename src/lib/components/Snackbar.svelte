@@ -10,19 +10,11 @@
             {/if}
         </div>
         <div class="right grid grid-cols-10-auto">
-            {#if message.buttons}
-                {#each message.buttons as button}
-                    <Button style="color:var(----snack-bar-color)" onClick={button.action}>
-                        {button.text}
-                    </Button>
-                {/each}
-            {:else}
-                <Button style="color:var(----snack-bar-color)" onClick={()=>{
-                    messageMaster.set(null)
-                }}>
-                    OK
+            {#each message.buttons as button}
+                <Button style="color:var(----snack-bar-color)" onClick={button.action}>
+                    {button.text}
                 </Button>
-            {/if}
+            {/each}
         </div>
     </div>
 </div>
@@ -66,26 +58,42 @@
     }
 </style>
 <script lang="ts">
-import { Button } from "framework7-svelte";
-import { onDestroy,onMount } from "svelte";
-import { fly } from "svelte/transition";
-import uuid from "../scripts/uuid";
-import messageMaster from "../stores/message";
-import type { RichMessage } from "../interfaces/message";
+import { Button } from "framework7-svelte"
+import { onDestroy,onMount } from "svelte"
+import { fly } from "svelte/transition"
+import uuid from "../scripts/uuid"
+import messageMaster from "../stores/message"
+import type { RichMessage } from "../interfaces/message"
 
 export let message:RichMessage|null
 
-let currentCallbackId = '';
+if(!message.buttons || message.buttons.length === 0)
+    message.buttons = [
+        {
+            text:'OK',
+            action:()=>{
+                $messageMaster = null
+            }
+        }
+    ]
+
+let currentCallbackId = ''
 onMount(()=>{
-    currentCallbackId = uuid();
-    let localCallbackId = currentCallbackId;
+    currentCallbackId = uuid()
+    let localCallbackId = currentCallbackId
+    if(!message.timeout)
+        message.timeout = 5000
+
+    console.info('Snackbar will timeout in ', message.timeout / 1000,' seconds.')
     setTimeout(()=>{
-        if(localCallbackId === currentCallbackId && message.onExpire){ //make sure this is not an old callback
-            message.onExpire();
+        if(localCallbackId === currentCallbackId){ //make sure this is not an old callback
+            $messageMaster = null
+            if(message.onExpire)
+                message.onExpire()
         }
     },message.timeout)
 });
 onDestroy(()=>{
-    currentCallbackId='';
+    currentCallbackId=''
 });
 </script>

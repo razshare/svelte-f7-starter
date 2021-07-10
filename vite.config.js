@@ -9,4 +9,7 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['framework7', 'framework7-svelte'],
   },
+  server:{
+    host:'::'
+  }
 })

@@ -12,7 +12,7 @@ import notify from "../scripts/notify";
 <Page>
     <Block class="grid grid-x-center grid-y-center">
         <div class="wrapper">
-            <img alt='svelte logo' src={SveltePNG}/>
+            <img height="200" alt='svelte logo' src={SveltePNG}/>
         </div>
     </Block>
     <Block>

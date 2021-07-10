@@ -16,13 +16,14 @@ export default async function notify(
 ):Promise<void>{
 	if(!await requestNotificationPermission()){
 		console.warn("Notification won't be sent because notification permission has not been granted.");
+		message.set({text:"This application does not have permission to send local notifications."})
 		return;
 	}
 	
 	(worker.subscribe($worker=>{
 		if($worker === null){
 			console.warn("You need to install the main worker before sending a notification.");
-			message.set({text:"Non puoi utilizzare il sistema di notifiche senza un service worker."})
+			message.set({text:"The local notifications system is unavailable for this application."})
 			return;
 		}
 		$worker.active.postMessage(JSON.stringify({

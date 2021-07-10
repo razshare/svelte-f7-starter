@@ -8,7 +8,6 @@ const { CacheFirst } = workbox.strategies;
 registerRoute(
   ({url}) => (
     !url.pathname.endsWith("version")
-    && !url.pathname.endsWith("worker.js")
   ),
   new CacheFirst()
 );

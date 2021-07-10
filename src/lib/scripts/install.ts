@@ -24,7 +24,7 @@ async function install():Promise<boolean>{
 				{
 					text:[
 						"This application is not installable.",
-						"Perhaps you've already installed it?"
+						"Perhaps you've already installed it or the origin domain is not secure?"
 					]
 				}
 			)
